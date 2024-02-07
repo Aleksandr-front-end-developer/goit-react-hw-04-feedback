@@ -15,17 +15,20 @@ export const App = () => {
   const countPositiveFeedbackPercentage = () => {
     return Math.round(good / (countTotalFeedback() / 100));
   };
-  const handleClick = value => {
-    switch (value) {
-      case 'good':
+  const handleClick = e => {
+    console.log(e);
+    switch (e) {
+      case 'Good':
         setGood(prev => prev + 1);
         break;
-      case 'bad':
+      case 'Bad':
         setBad(prev => prev + 1);
         break;
-      case 'neutral':
+      case 'Neutral':
         setNeutral(prev => prev + 1);
         break;
+      default:
+        throw new Error('Error');
     }
   };
   const total = countTotalFeedback();
